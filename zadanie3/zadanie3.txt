@@ -1,0 +1,31 @@
+CREATE TABLE Tenant
+(
+    Id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    Flat_id SMALLINT,
+    FirstName VARCHAR(20),
+    LastName VARCHAR(20),
+    Patronymic VARCHAR(30),
+    FOREIGN KEY (Flat_id)  REFERENCES Flat (Id)
+);
+
+CREATE TABLE Flat
+(
+    Id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    Entrance_id TINYINT,
+    Floor_id TINYINT,
+    Area SMALLINT,
+    FOREIGN KEY (Entrance_id)  REFERENCES Entrance (Id),
+    FOREIGN KEY (Floor_id)  REFERENCES Floor (Id)
+);
+
+CREATE TABLE Entrance
+(
+    Id TINYINT PRIMARY KEY AUTO_INCREMENT,
+    Entrance TINYINT,
+);
+
+CREATE TABLE Floor
+(
+    Id TINYINT PRIMARY KEY AUTO_INCREMENT,
+    Floor TINYINT,
+);

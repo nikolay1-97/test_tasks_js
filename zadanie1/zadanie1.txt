@@ -1,0 +1,11 @@
+CREATE TEMPORARY TABLE 'temp_table' 
+as  (
+   SELECT min(id) as id
+   FROM 'A'
+   GROUP BY B, C, D
+);
+
+DELETE from 'A'
+WHERE 'A'.id not in (
+   SELECT id FROM temp_table
+);
